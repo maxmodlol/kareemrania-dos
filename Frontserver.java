@@ -6,7 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import com.google.gson.Gson;
-public class FrontEndServer {
+public class FrontServer {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
