@@ -21,7 +21,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * @author WINDOWS 8
  *
  */
-public class ExceleDataReader {
+public class Reader {
 
     
     public static Object infoFromExcel(String file, double ItemNumber) throws IOException
