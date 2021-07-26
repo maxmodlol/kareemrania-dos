@@ -2,7 +2,7 @@
 import static spark.Spark.*;
 
 import com.google.gson.Gson;
-public class Catalog_Server {
+public class Catalogserver {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
