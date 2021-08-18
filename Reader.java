@@ -1,8 +1,10 @@
+package kr;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.ss.usermodel.Cell;
@@ -21,6 +23,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * @author WINDOWS 8
  *
  */
+
+
 public class Reader {
 
     
@@ -49,7 +53,7 @@ public class Reader {
         
         
       
-            double ID = row.getCell(0).getNumericCellValue();
+            int ID = (int)row.getCell(0).getNumericCellValue();
             System.out.println("ID :" + ID);
             String name = row.getCell(1).getStringCellValue();
             System.out.println("NAME : " + name);
@@ -59,11 +63,19 @@ public class Reader {
             System.out.println("amount :" + amount);
             String topic = row.getCell(4).getStringCellValue();
             System.out.println("topic : " + topic);
-        String data = new String(ID+" ,"+name+" ,"+price+" ,"+amount+" ,"+topic);
+//        String data = new String(ID+" ,"+name+" ,"+price+" ,"+amount+" ,"+topic);
         
+       String s;
+       HashMap<String, Object> map = new HashMap<>();
+       map.put("id", ID);
+       map.put("name", name);
+       map.put("price", price);
+       map.put("amount", amount);
+       map.put("topic", topic);
        
+        
         myExcelBook.close();
-		return data;
+		return map;
         
     }//look up function
     

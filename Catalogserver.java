@@ -1,24 +1,53 @@
+package kr;
+
+
+
 //package com.code.spark;
+
 import static spark.Spark.*;
 
+
+
 import com.google.gson.Gson;
+
 public class Catalogserver {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
+
+	static String path = "~Desktop/Books.xlsx";
+
 	
-		port(7766);
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+	
+
+		port(6868);
+
 		Gson gson = new Gson();
-    	get("info/:id",( req,res)->{double ID = Double.parseDouble(req.params(":id"));
-    	String path = "/home/KareemAsoud/Desktop/SharedFolders/Books.xlsx";
-    		return gson.toJson(ExceleDataReader.infoFromExcel(path, ID));			
-    	});
-    	
-    	get("Search/:topic",( req,res)->{String topic = req.params(":topic");
-    	String path = "/home/KareemAsoud/Desktop/SharedFolders/Books.xlsx";
-    		return gson.toJson(ExceleDataReader.SearchFromExcel(path, topic));			
-    	});
+
+  	get("info/:id",( req,res)->{double ID = Double.parseDouble(req.params(":id"));
+
+		res.header("Content-Type", "application/json");
+
+  		return gson.toJson(Reader.infoFromExcel(path, ID));			
+
+  	});
+
+  	
+
+  	get("Search/:topic",( req,res)->{String topic = req.params(":topic");
+
+  		return gson.toJson(Reader.SearchFromExcel(path, topic));			
+
+  	});
+
+
 
 	}
+
+
 
 }
